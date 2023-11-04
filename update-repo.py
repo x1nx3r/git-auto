@@ -1,8 +1,6 @@
 import os
 import git
 
-#wkwkwkwkwkwkwkwkwkwkwkwk //flag
-
 # Set the repository directory and commit message
 commit_message = "Your commit message here"
 
@@ -27,6 +25,7 @@ else:
 
     # Push to the remote repository (if needed)
     repo.remotes.origin.push()
+    print("Changes pushed successfully.")
 
 # Clean up
 repo.close()
