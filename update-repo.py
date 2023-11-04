@@ -26,7 +26,7 @@ else:
     print("Changes committed successfully.")
 
     # Push to the remote repository (if needed)
-    # repo.remotes.origin.push()
+    repo.remotes.origin.push()
 
 # Clean up
 repo.close()
