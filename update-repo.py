@@ -2,14 +2,15 @@ import os
 import git
 
 # Set the repository directory and commit message
-repository_dir = "/"
 commit_message = "Your commit message here"
 
+script_dir = os.path.dirname(os.path.realpath(__file__))
+
 # Change directory to the repository
-os.chdir(repository_dir)
+os.chdir(script_dir)
 
 # Open the repository
-repo = git.Repo(repository_dir)
+repo = git.Repo(script_dir)
 
 # Check if there are any changes
 if not repo.is_dirty():
