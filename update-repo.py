@@ -1,5 +1,5 @@
 import os
-import git
+from git import Repo, cmd
 
 script_dir = os.path.dirname(os.path.realpath(__file__))
 
@@ -10,17 +10,11 @@ repository_dir = script_dir
 commit_message = "Your commit message here"
 
 # Open the repository
-repo = git.Repo(repository_dir)
+repo = Repo(repository_dir)
 
-# Iterate through all files in the repository, including those in subdirectories
-for root, _, files in os.walk(repository_dir):
-    for file in files:
-        file_path = os.path.join(root, file)
-
-        # Check if the file is untracked
-        if file_path not in repo.untracked_files:
-            if repo.is_dirty(path=file_path):
-                repo.git.add(file_path)
+# Use the git.cmd.Git class to execute 'git add' recursively
+git = cmd.Git(repository_dir)
+git.execute(['git', 'add', '.'])
 
 # Check if there are any changes
 if not repo.is_dirty():
